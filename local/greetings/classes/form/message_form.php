@@ -15,17 +15,32 @@
 // along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
 
 /**
- * Plugin version and other meta-data are defined here.
+ *  Main file to view greetings
  *
  * @package     local_greetings
  * @copyright   2024 Denis mymoodle@mymoodle.com
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+
+namespace local_greetings\form;
+
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->component = 'local_greetings';
-$plugin->release = '0.1.0';
-$plugin->version = 2024070100;
-$plugin->requires = 2020061500;
-$plugin->maturity = MATURITY_ALPHA;
+require_once($CFG->libdir . '/formslib.php');
+
+class message_form extends \moodleform {
+    /**
+     * Определите форму.
+     */
+    public function definition() {
+        $mform = $this->_form; // Не забываем про нижнее подчеркивание!
+
+        $mform->addElement('textarea', 'message', get_string('yourmessage', 'local_greetings'));
+        $mform->setType('сообщение', PARAM_TEXT);
+
+        $submitlabel = get_string('submit');
+        $mform->addElement('submit', 'submitmessage', $submitlabel);
+    }
+
+}

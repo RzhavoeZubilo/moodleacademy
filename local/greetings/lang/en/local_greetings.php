@@ -19,7 +19,7 @@
  *
  * @package     local_greetings
  * @category    string
- * @copyright   2024 Denis <you@example.com>
+ * @copyright   2024 Denis mymoodle@mymoodle.com
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -33,3 +33,6 @@ $string['greetinguserau'] = 'Здравствуйте, {$a}.';
 $string['greetinguseres'] = 'Здравствуйте, {$a}.';
 $string['greetinguserfj'] = 'Була, {$a}.';
 $string['greetingusernz'] = 'Kia Ora, {$a}.';
+
+
+$string['yourmessage'] = 'Ваше сообщение';
