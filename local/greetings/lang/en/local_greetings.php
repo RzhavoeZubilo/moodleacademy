@@ -36,3 +36,11 @@ $string['greetingusernz'] = 'Kia Ora, {$a}.';
 
 
 $string['yourmessage'] = 'Ваше сообщение';
+$string['postedby'] = 'Опубликовано {$a}.';
+
+
+$string['greetings:viewmessages'] = 'Просмотр сообщений на стене приветствий';
+$string['greetings:postmessages'] = 'Опубликовать новое сообщение на стене приветствий';
+$string['greetings:deleteanymessage'] = 'Удаление сообщений на стене приветствий';
+$string['delete'] = 'Удалить';
+$string['greetings:deleteownmessage'] = 'Удалить собственное сообщение на стене приветствий';

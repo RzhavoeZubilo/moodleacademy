@@ -33,11 +33,13 @@ function local_greetings_get_greeting($user)
  */
 function local_greetings_extend_navigation_frontpage(navigation_node $frontpage)
 {
-    $frontpage->add(
-        get_string('pluginname', 'local_greetings'),
-        new moodle_url('/local/greetings/index.php'),
-        navigation_node::TYPE_CUSTOM
-    );
+    if (!isguestuser()) {
+        $frontpage->add(
+            get_string('pluginname', 'local_greetings'),
+            new moodle_url('/local/greetings/index.php'),
+            navigation_node::TYPE_CUSTOM
+        );
+    }
 }
 
 /** добавляет пункт в меня в мудл версии ниже 4 */
