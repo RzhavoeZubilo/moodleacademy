@@ -54,12 +54,15 @@ if ($action === 'del') {
     $id = required_param('id', PARAM_TEXT);
 
     if ($deleteanypost || $deletepost) {
+        require_sesskey();
         $params = array('id' => $id);
         // Пользователи без разрешения должны удалять только свои собственные сообщения.
         if (!$deleteanypost) {
             $params += ['userid' => $USER->id];
         }
         $DB->delete_records('local_greetings_messages', $params);
+
+        redirect($PAGE->url);
     }
 }
 
@@ -136,7 +139,7 @@ foreach ($messages as $m) {
         echo html_writer::link(
             new moodle_url(
                 '/local/greetings/index.php',
-                array('action' => 'del', 'id' => $m->id)
+                array('action' => 'del', 'id' => $m->id, 'sesskey' => sesskey())
             ),
             $OUTPUT->pix_icon('t/delete', '') . get_string('delete')
         );
