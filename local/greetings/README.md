@@ -29,7 +29,7 @@ to complete the installation from the command line.
 
 ## License ##
 
-2024 Denis <you@example.com>
+2024 Denis mymoodle@mymoodle.com
 
 
 This program is free software: you can redistribute it and/or modify it under
