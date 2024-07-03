@@ -15,7 +15,6 @@
 // along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
 
 /**
- *  Main file to view greetings
  *
  * @package     local_greetings
  * @copyright   2024 Denis mymoodle@mymoodle.com
@@ -37,7 +36,18 @@ class message_form extends \moodleform {
         $mform = $this->_form; // Не забываем про нижнее подчеркивание!
 
         $mform->addElement('textarea', 'message', get_string('yourmessage', 'local_greetings'));
-        $mform->setType('сообщение', PARAM_TEXT);
+        $mform->setType('message', PARAM_TEXT);
+
+        // If editing the form, load data from db.
+        // способ заполнить поля формы вместо set_data_form
+        if (isset($this->_customdata['message'])) {
+            $message = $this->_customdata['message'];
+
+            $mform->addElement('hidden', 'id', $message->id);
+            $mform->setType('id', PARAM_INT); // Set type of element.
+
+            $mform->setDefault('message', $message->message);
+        }
 
         $submitlabel = get_string('submit');
         $mform->addElement('submit', 'submitmessage', $submitlabel);
